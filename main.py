@@ -2,15 +2,24 @@ import pygame
 
 WIDTH, HEIGHT = 900, 500
 WINDOW = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption("New Game")
+background_color = (25, 0, 100)
+FPS = 60
 
+
+def draw_window():
+    WINDOW.fill(background_color)
+    pygame.display.update()
 
 def main():
+    clock = pygame.time.Clock()
     run = True
     while run:
+        clock.tick(FPS)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
-
+        draw_window()
     pygame.quit()
 
 
